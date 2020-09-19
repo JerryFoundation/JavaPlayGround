@@ -1,6 +1,5 @@
 package test.leetcode;
 
-import com.alibaba.fastjson.JSON;
 
 /**
  * @author zhuqianchao
@@ -16,9 +15,6 @@ public class AddTwoNumbers {
         l2.next = new ListNode(5);
         l2.next.next = new ListNode(4);
         ListNode a = new AddTwoNumbers().addTwoNumbers(l1, l2);
-
-        System.out.println(JSON.toJSONString(a));
-
 
     }
 
