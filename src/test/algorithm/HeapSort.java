@@ -83,12 +83,6 @@ public class HeapSort {
             // 以交换后子节点位置接着往下查找
             i = maxPos;
         }
-
-        ReentrantLock lock = new ReentrantLock();
-
-        lock.lock();
-
-        lock.unlock();
     }
 
 
