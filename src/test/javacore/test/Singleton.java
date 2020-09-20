@@ -4,6 +4,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
+ * 借助enum特性，实现单例
  * @author zhuqianchao
  * @date 20/9/2020 13:08
  */
