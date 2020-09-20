@@ -6,6 +6,12 @@ import java.util.Comparator;
 import java.util.List;
 
 
+/**
+ * 将区间重合的数组合并
+ *
+ * @author zhuqianchao
+ * @date 20/9/2020 22:52
+ */
 public class CombineTwoArray {
 
     public int[][] merge(int[][] intervals) {
@@ -39,7 +45,7 @@ public class CombineTwoArray {
 
     public static void main(String[] args) {
         CombineTwoArray solution = new CombineTwoArray();
-        int[][] intervals = {{2, 3}, {1, 6}, {15, 10}, {8, 18}};
+        int[][] intervals = {{2, 3}, {1, 6}, {10, 19}, {8, 18}};
         int[][] res = solution.merge(intervals);
         for (int i = 0; i < res.length; i++) {
             System.out.println(Arrays.toString(res[i]));
