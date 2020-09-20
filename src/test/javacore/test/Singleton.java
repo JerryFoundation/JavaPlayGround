@@ -1,5 +1,6 @@
 package test.javacore.test;
 
+import java.util.Vector;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -32,7 +33,6 @@ public class Singleton {
 
 
     public static void main(String[] args) {
-
         ExecutorService e = Executors.newFixedThreadPool(2);
         int c = 0;
         while (c < 20) {
