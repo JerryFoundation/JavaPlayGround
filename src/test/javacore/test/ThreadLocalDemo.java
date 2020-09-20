@@ -1,6 +1,7 @@
 package test.javacore.test;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.ConcurrentMap;
 
 /**
  * @author zhuqianchao
@@ -67,5 +68,7 @@ public class ThreadLocalDemo {
 
         new Thread(new ThreadA(threadLocal)).start();
         new Thread(new ThreadB(threadLocal)).start();
+
+
     }
 }
