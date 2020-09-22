@@ -10,9 +10,8 @@ import java.util.concurrent.locks.ReentrantLock;
 public class HeapSort {
 
     public static void main(String[] args) {
-        int[] arr = {2, 3, 5, 6, 8, 10, 11, 23, 21, 9};
+        int[] arr = {5, 2, 1, 6, 8, 12, 11, 23, 21, 9};
         sort(arr);
-
         System.out.println(Arrays.toString(arr));
     }
 
@@ -50,7 +49,7 @@ public class HeapSort {
         // 因为堆是完全二叉树  完全二叉树 后 n/2 都为叶子节点
         // (arr.length - 1) / 2 为最后一个叶子节点的父节点
         // 也就是最后一个非叶子节点，依次堆化直到根节点
-        for (int i = (arr.length - 1) / 2; i >= 0; i--) {
+        for (int i = (arr.length >>> 1) - 1; i >= 0; i--) {
             heapify(arr, arr.length - 1, i);
         }
     }

@@ -33,12 +33,11 @@ public class Singleton {
 
 
     public static void main(String[] args) {
-        ExecutorService e = Executors.newFixedThreadPool(2);
+        ExecutorService e = Executors.newFixedThreadPool(5);
         int c = 0;
-        while (c < 20) {
+        while (c < 100) {
             c++;
-            System.out.println(c);
-            e.execute(() -> System.out.println(Singleton.getInstance()));
+            e.execute(() -> System.out.println(Singleton3.getInstance()));
         }
 
         e.shutdown();
