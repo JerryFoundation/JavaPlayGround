@@ -10,9 +10,13 @@ package org.jerry.test.algorithm;
 public class DistDp {
 
     public static void main(String[] args) {
-        int[][] matrix = {{1, 3, 5, 9}, {2, 1, 5, 6}, {5, 7, 8, 10}, {3, 9, 6, 1}};
+//        int[][] matrix = {{1, 3, 5, 9}, {2, 1, 5, 6}, {5, 7, 8, 10}, {3, 9, 6, 1}};
+//
+//        System.out.println(new DistDp().minDistDP(matrix, matrix.length));
 
-        System.out.println(new DistDp().minDistDP(matrix, matrix.length));
+
+        int n = 4;
+        System.out.println(new DistDp().minDist(n - 1, n - 1));
     }
 
 
@@ -35,5 +39,25 @@ public class DistDp {
             }
         }
         return states[n - 1][n - 1];
+    }
+
+
+    int[][] matrix = {{1, 3, 5, 9}, {2, 1, 5, 6}, {5, 7, 8, 10}, {3, 9, 6, 1}};
+    int[][] mem = new int[4][4];
+    public int minDist(int i, int j) { // 调用minDist(n-1, n-1);
+        if (i == 0 && j == 0) return matrix[0][0];
+        if (mem[i][j] > 0) return mem[i][j];
+        int minLeft = Integer.MAX_VALUE;
+        if (j - 1 >= 0) {
+            minLeft = minDist(i, j - 1);
+        }
+        int minUp = Integer.MAX_VALUE;
+        if (i - 1 >= 0) {
+            minUp = minDist(i - 1, j);
+        }
+
+        int currMinDist = matrix[i][j] + Math.min(minLeft, minUp);
+        mem[i][j] = currMinDist;
+        return currMinDist;
     }
 }
