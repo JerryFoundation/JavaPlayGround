@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class LeetCode104 {
 
-    public class TreeNode {
+    private class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
