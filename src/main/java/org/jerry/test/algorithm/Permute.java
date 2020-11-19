@@ -13,6 +13,7 @@ public class Permute {
 
 
     public static void main(String[] args) {
+        System.out.println(3|9);
         System.out.println(new Permute().permute(new int[]{1, 2, 3}));
     }
 
