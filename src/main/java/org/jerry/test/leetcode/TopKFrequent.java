@@ -13,7 +13,8 @@ public class TopKFrequent {
 
         int k = 2;
 
-        System.out.println(Arrays.toString(new TopKFrequent().topKFrequent(a, k)));
+//        System.out.println(Arrays.toString(new TopKFrequent().topKFrequent(a, k)));
+        System.out.println(new TopKFrequent.Solution().topKFrequent(a, k));
     }
 
     public int[] topKFrequent(int[] nums, int k) {
@@ -53,5 +54,45 @@ public class TopKFrequent {
         }
 
         return ret;
+    }
+
+
+    /**
+     * K个频率最高的数
+     */
+    static class Solution {
+        public List<Integer> topKFrequent(int[] nums, int k) {
+            // 使用字典，统计每个元素出现的次数，元素为键，元素出现的次数为值
+            HashMap<Integer, Integer> map = new HashMap<>();
+            for (int num : nums) {
+                if (map.containsKey(num)) {
+                    map.put(num, map.get(num) + 1);
+                } else {
+                    map.put(num, 1);
+                }
+            }
+            // 遍历map，用最小堆保存频率最大的k个元素
+            PriorityQueue<Integer> pq = new PriorityQueue<>(new Comparator<Integer>() {
+                @Override
+                public int compare(Integer a, Integer b) {
+                    return map.get(a) - map.get(b);
+                }
+            });
+            for (Integer key : map.keySet()) {
+                if (pq.size() < k) {
+                    pq.add(key);
+                } else if (map.get(key) > map.get(pq.peek())) {
+                    pq.remove();
+                    pq.add(key);
+                }
+            }
+            // 取出最小堆中的元素
+            List<Integer> res = new ArrayList<>();
+            while (!pq.isEmpty()) {
+                // 节省空间， 把堆元素移除， 添加到结果中
+                res.add(pq.remove());
+            }
+            return res;
+        }
     }
 }

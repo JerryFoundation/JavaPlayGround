@@ -1,5 +1,6 @@
 package org.jerry.test.javacore.test;
 
+import java.util.HashMap;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -77,6 +78,7 @@ public class ABC1 {
             }
         }
     }
+
 
     public static void main(String[] args) throws InterruptedException {
         new ThreadA().start();
