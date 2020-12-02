@@ -9,6 +9,10 @@ import java.util.List;
 public class Test15 {
 
     public static void main(String[] args) {
+        int n = 10;
+        while (n -- >= 0) {
+            System.out.println(n);
+        }
         List<String> list = List.of("1","2");
 
         var a = "222";

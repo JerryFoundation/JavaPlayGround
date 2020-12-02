@@ -20,13 +20,14 @@ import java.util.Map;
  * 输入: s1= "ab" s2 = "eidboaoo"
  * 输出: False
  *
- * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/permutation-in-string
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * @author zhuqianchao
  * @date 21/11/2020 19:28
  */
 public class LeetCode567 {
+
+    public static void main(String[] args) {
+        System.out.println(new LeetCode567().checkInclusion("ab", "eidbaooo"));
+    }
 
     public boolean checkInclusion(String s1, String s2) {
         Map<Character, Integer> need = new HashMap<>();

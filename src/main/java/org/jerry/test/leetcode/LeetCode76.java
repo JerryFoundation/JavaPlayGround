@@ -36,7 +36,7 @@ public class LeetCode76 {
 
 
     public static void main(String[] args) {
-        System.out.println(new LeetCode76().minWindow("ADOBECODEBBANC", "ABBC"));
+        System.out.println(new LeetCode76().minWindow("ADOBECODEBBANC", "ABC"));
     }
     public String minWindow(String s, String t) {
         Map<Character, Integer> need = new HashMap<>();
