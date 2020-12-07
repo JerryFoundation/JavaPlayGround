@@ -10,25 +10,27 @@ package org.jerry.test.algorithm;
 public class DistDp {
 
     public static void main(String[] args) {
-//        int[][] matrix = {{1, 3, 5, 9}, {2, 1, 5, 6}, {5, 7, 8, 10}, {3, 9, 6, 1}};
-//
-//        System.out.println(new DistDp().minDistDP(matrix, matrix.length));
-
+        int[][] matrix = {{1, 3, 5, 9}, {2, 1, 5, 6}, {5, 7, 8, 10}, {3, 9, 6, 1}};
+        System.out.println(new DistDp().minDistDP(matrix, matrix.length));
 
         int n = 4;
         System.out.println(new DistDp().minDist(n - 1, n - 1));
+
+        System.out.println(new DistDp().fib(Integer.MAX_VALUE));
     }
 
 
     public int minDistDP(int[][] matrix, int n) {
         int[][] states = new int[n][n];
         int sum = 0;
-        for (int j = 0; j < n; ++j) { // 初始化states的第一行数据
+        // 初始化states的第一行数据
+        for (int j = 0; j < n; ++j) {
             sum += matrix[0][j];
             states[0][j] = sum;
         }
         sum = 0;
-        for (int i = 0; i < n; ++i) { // 初始化states的第一列数据
+        // 初始化states的第一列数据
+        for (int i = 0; i < n; ++i) {
             sum += matrix[i][0];
             states[i][0] = sum;
         }
@@ -44,9 +46,16 @@ public class DistDp {
 
     int[][] matrix = {{1, 3, 5, 9}, {2, 1, 5, 6}, {5, 7, 8, 10}, {3, 9, 6, 1}};
     int[][] mem = new int[4][4];
-    public int minDist(int i, int j) { // 调用minDist(n-1, n-1);
-        if (i == 0 && j == 0) return matrix[0][0];
-        if (mem[i][j] > 0) return mem[i][j];
+
+
+
+    public int minDist(int i, int j) {
+        if (i == 0 && j == 0) {
+            return matrix[0][0];
+        }
+        if (mem[i][j] > 0) {
+            return mem[i][j];
+        }
         int minLeft = Integer.MAX_VALUE;
         if (j - 1 >= 0) {
             minLeft = minDist(i, j - 1);
@@ -59,5 +68,22 @@ public class DistDp {
         int currMinDist = matrix[i][j] + Math.min(minLeft, minUp);
         mem[i][j] = currMinDist;
         return currMinDist;
+    }
+
+
+    public int fib(int n) {
+        if (n < 1) {
+            return 0;
+        }
+        if (n == 2 || n == 1) {
+            return 1;
+        }
+        int prev = 1, curr = 1;
+        for (int i = 3; i <= n; i++) {
+            int sum = prev + curr;
+            prev = curr;
+            curr = sum;
+        }
+        return curr;
     }
 }

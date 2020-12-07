@@ -3,15 +3,15 @@ package org.jerry.test.algorithm;
 import java.util.Arrays;
 
 /**
- *
  * 使用双指针实现快速排序
+ *
  * @author zhuqianchao
  * @date 19/9/2020 11:36
  */
 public class QuickSortWithDouble {
 
     public static void main(String[] args) {
-        int[] arr = {1, 23, 4, 3, 25, 189, 11};
+        int[] arr = {6, 1, 23, 4, 3, 25, 189, 11};
         QuickSortWithDouble.quickSort(arr, 0, arr.length - 1);
 
         System.out.println(Arrays.toString(arr));
@@ -48,7 +48,7 @@ public class QuickSortWithDouble {
      * @date 19/9/2020 11:41
      */
     private static int partition(int[] arr, int startIndex, int endIndex) {
-        // 去第一个元素， 也可以是随机从数组任意位置取
+        // 取第一个元素， 也可以是随机从数组任意位置取
         int pivot = arr[startIndex];
         int left = startIndex;
         int right = endIndex;

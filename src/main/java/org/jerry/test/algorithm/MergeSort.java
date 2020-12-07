@@ -3,6 +3,7 @@ package org.jerry.test.algorithm;
 import java.util.Arrays;
 
 /**
+ * 归并排序算法
  * @author zhuqianchao
  * @date 2020/8/25 22:50
  */
@@ -23,7 +24,9 @@ public class MergeSort {
     // 递归调用函数
     private static void mergeSortInternally(int[] a, int p, int r) {
         // 递归终止条件
-        if (p >= r) return;
+        if (p >= r) {
+            return;
+        }
 
         // 取p到r之间的中间位置q,防止（p+r）的和超过int类型最大值
         int q = p + (r - p) / 2;
@@ -32,10 +35,10 @@ public class MergeSort {
         mergeSortInternally(a, q + 1, r);
 
         // 将A[p...q]和A[q+1...r]合并为A[p...r]
-//        merge(a, p, q, r);
+        merge(a, p, q, r);
         // 用哨兵合并
 //        mergeBySentry(a, p, q, r);
-        merge2(a, p, q, r);
+//        merge2(a, p, q, r);
     }
 
     private static void merge(int[] a, int p, int q, int r) {
