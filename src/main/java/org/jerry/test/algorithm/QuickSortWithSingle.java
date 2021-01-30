@@ -1,7 +1,6 @@
 package org.jerry.test.algorithm;
 
 import java.util.Arrays;
-
 /**
  * 用单边循环实现快速排序
  *
@@ -12,7 +11,6 @@ public class QuickSortWithSingle {
     public static void main(String[] args) {
         int[] arr = {29, 23, 4, 3, 25, 189, 11};
         QuickSortWithSingle.quickSortWithSingle(arr, 0, arr.length - 1);
-
         System.out.println(Arrays.toString(arr));
     }
 

@@ -29,7 +29,7 @@ public class MergeSort {
         }
 
         // 取p到r之间的中间位置q,防止（p+r）的和超过int类型最大值
-        int q = p + (r - p) / 2;
+        int q = p + ((r - p) >> 1);
         // 分治递归
         mergeSortInternally(a, p, q);
         mergeSortInternally(a, q + 1, r);
@@ -44,11 +44,14 @@ public class MergeSort {
     private static void merge(int[] a, int p, int q, int r) {
         int i = p;
         int j = q + 1;
-        int k = 0; // 初始化变量i, j, k
-        int[] tmp = new int[r - p + 1]; // 申请一个大小跟a[p...r]一样的临时数组
+        // 初始化变量i, j, k
+        int k = 0;
+        // 申请一个大小跟a[p...r]一样的临时数组
+        int[] tmp = new int[r - p + 1];
         while (i <= q && j <= r) {
             if (a[i] <= a[j]) {
-                tmp[k++] = a[i++]; // i++等于i:=i+1
+                // i++等于i:=i+1
+                tmp[k++] = a[i++];
             } else {
                 tmp[k++] = a[j++];
             }
